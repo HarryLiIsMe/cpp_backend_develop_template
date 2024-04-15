@@ -1,1 +1,1 @@
-# Cpp Program Language Develop Template. 
+# Cpp Program Language Develop Template
