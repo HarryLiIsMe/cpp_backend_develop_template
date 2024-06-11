@@ -1,0 +1,54 @@
+cmake_minimum_required(VERSION 3.20.0)
+
+project(cpp_backend_develop_template LANGUAGES C CXX)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(INC_DIRS ${CMAKE_SOURCE_DIR}/inc)
+set(SRC_DIRS ${CMAKE_SOURCE_DIR}/src)
+set(TEST_DIRS ${CMAKE_SOURCE_DIR}/tests)
+
+file(GLOB_RECURSE INC_FILES ${INC_DIRS}/*.h)
+file(GLOB_RECURSE SRC_FILES ${SRC_DIRS}/*.cpp)
+file(GLOB_RECURSE TEST_FILES ${TEST_DIRS}/*.cpp)
+
+set(3DPARTY ${CMAKE_SOURCE_DIR}/3dparty)
+
+if(WIN32)
+    include(cmake/win64.cmake)
+elseif(UNIX)
+    include(cmake/unix64.cmake)
+elseif(APPLE)
+    message(FATAL_ERROR "no support operator system")
+endif()
+
+include(cmake/fmt.cmake)
+include(cmake/lint.cmake)
+include(cmake/unittest.cmake)
+
+include_directories(
+    ${INC_DIRS}
+)
+
+# exec binary file generate
+add_executable(cpp_backend_develop_template_main
+    ${SRC_DIRS}/main.cpp
+)
+target_link_libraries(cpp_backend_develop_template_main)
+
+# static library generate
+add_library(cpp_backend_develop_template_st STATIC
+    ${SRC_DIRS}/equal_i32.cpp
+    ${SRC_DIRS}/max_i32.cpp
+)
+
+# shared dynamic library generate
+add_library(cpp_backend_develop_template_dy SHARED
+    ${SRC_DIRS}/equal_i32.cpp
+    ${SRC_DIRS}/max_i32.cpp
+)
+
+set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/lib")
+set(EXECUTABLE_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/bin")
