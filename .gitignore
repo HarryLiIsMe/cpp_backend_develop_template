@@ -7,3 +7,4 @@ build
 !3dparty/.gitkeep
 bin
 lib
+.env
