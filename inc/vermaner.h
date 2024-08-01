@@ -23,14 +23,18 @@ class VerManer : public SingleTon<VerManer> {
 
   VER_TYPE getCurrVer() { return VER_CURR; }
 
-  EVER_COMP compareVer(VER_TYPE lver, VER_TYPE rver) {
-    i32_t ilver, irver;
-    // bool res = boost::conversion::detail::try_lexical_convert(lver, ilver);
-    // res = boost::conversion::detail::try_lexical_convert(rver, irver);
-    // if (!res) THROW_GERR(ERRCODE::ERR_VER_NOT_FOUND);
+  EVER_COMP verComp(VER_TYPE lver, VER_TYPE rver) {
+    ui32_t i_lver, i_rver;
+    try {
+      i_lver = std::stoi(lver);
+      i_rver = std::stoi(rver);
+    } catch (...) {
+      THROW_GERR(ERRCODE::ERR_VER_NOT_FOUND);
+    }
 
-    if (ilver == irver) return EVER_COMP::EVEREQUAL;
-    return ilver > irver ? EVER_COMP::EVERLARGER : EVER_COMP::EVERLESS;
+    return i_lver == i_rver ? EVER_COMP::EVEREQUAL
+                            : (i_lver > i_rver ? EVER_COMP::EVERLARGER
+                                               : EVER_COMP::EVERLESS);
   }
 
   std::string getBuildDateTime() {
