@@ -25,9 +25,9 @@ elseif(APPLE)
     message(FATAL_ERROR "no support operator system")
 endif()
 
+include(cmake/unittest.cmake)
 include(cmake/fmt.cmake)
 include(cmake/lint.cmake)
-include(cmake/unittest.cmake)
 
 include_directories(
     ${INC_DIRS}

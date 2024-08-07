@@ -4,10 +4,15 @@
 # clang-tidy version >= 18.1.8
 # clang-tidy --checks=*,-* --warnings-as-errors=* --format-style=google --dump-config > .clang-tidy
 add_custom_target(lint
-    COMMAND clang-tidy --config-file=.clang-tidy ${SRC_FILES} ${TEST_FILES} -p ${PROJECT_BINARY_DIR} 
+    COMMAND clang-tidy --config-file=.clang-tidy ${SRC_FILES} ${TEST_FILES} -- -x c++ -I ${INC_DIRS} -I ${GTEST_INCS}
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     COMMENT "lint code"
 )
+# add_custom_target(lint
+#     COMMAND clang-tidy --config-file=.clang-tidy ${SRC_FILES} ${TEST_FILES} -p ${PROJECT_BINARY_DIR} 
+#     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+#     COMMENT "lint code"
+# )
 # add_custom_target(lint
 #     COMMAND clang-tidy --config-file=.clang-tidy ${SRC_FILES} ${TEST_FILES} -p ${CMAKE_BINARY_DIR} 
 #     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}

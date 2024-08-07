@@ -1,6 +1,12 @@
 # make test
-add_subdirectory(${3DPARTY}/googletest-1.14.0)
-include_directories(${3DPARTY}/googletest-1.14.0/googletest/include)
+set(GTEST_DIRS ${3DPARTY}/googletest-1.14.0)
+set(GTEST_SRC_DIRS ${GTEST_DIRS}/googletest/src)
+set(GTEST_INCS ${GTEST_DIRS}/googletest/include)
+set(GMOCK_SRC_DIRS ${GTEST_DIRS}/googlemock/src)
+set(GMOCK_INCS ${GTEST_DIRS}/googlemock/include)
+
+add_subdirectory(${GTEST_DIRS})
+include_directories(${GTEST_INCS})
 
 # set(GTEST_LIB gtest gtest_main gmock gmock_main)
 add_executable(tests

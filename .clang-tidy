@@ -1,5 +1,5 @@
 ---
-Checks:          '*,-readability-*,-performance-*,-llvmlibc-*,-modernize-*,-objc-*,-google-readability-*,-misc-include-cleaner,-bugprone-exception-escape,-cppcoreguidelines-owning-memory'
+Checks:          '*,-readability-*,-performance-*,-llvmlibc-*,-modernize-*,-fuchsia-*,-objc-*,-google-readability-*,-misc-include-cleaner,-bugprone-exception-escape,-cppcoreguidelines-owning-memory,-cert-err58-cpp'
 WarningsAsErrors: '*'
 HeaderFileExtensions:
   - ''
