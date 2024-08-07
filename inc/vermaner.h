@@ -1,4 +1,5 @@
 #pragma once
+
 #include <string>
 #include <type_traits>
 
@@ -19,11 +20,14 @@ class VerManer : public SingleTon<VerManer> {
     // version less
     EVERLESS = -1
   };
-  std::string getStrCurrVer() { return std::string("VER_").append(VER_CURR); }
 
-  VER_TYPE getCurrVer() { return VER_CURR; }
+  inline std::string getStrCurrVer() {
+    return std::string("VER_").append(VER_CURR);
+  }
 
-  EVER_COMP verComp(VER_TYPE lver, VER_TYPE rver) {
+  inline VER_TYPE getCurrVer() { return VER_CURR; }
+
+  inline EVER_COMP verComp(VER_TYPE lver, VER_TYPE rver) {
     ui32_t i_lver, i_rver;
     try {
       i_lver = std::stoi(lver);
@@ -37,7 +41,7 @@ class VerManer : public SingleTon<VerManer> {
                                                : EVER_COMP::EVERLESS);
   }
 
-  std::string getBuildDateTime() {
+  inline std::string getBuildDateTime() {
     return std::string("build date: ")
         .append(__DATE__)
         .append(" time: ")

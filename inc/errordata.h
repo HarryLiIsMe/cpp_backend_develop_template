@@ -1,5 +1,7 @@
 #pragma once
+
 #include "common.h"
+
 // version 1
 enum class ERRCODE : ui64_t {
   ERR_SUCCESS = 0,

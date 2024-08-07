@@ -1,4 +1,5 @@
 #pragma once
+
 using i8_t = char;
 using i16_t = short;
 using i32_t = int;

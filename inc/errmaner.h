@@ -1,4 +1,5 @@
 #pragma once
+
 #include <exception>
 #include <map>
 #include <stdexcept>
@@ -32,7 +33,7 @@ class ErrorManer : public SingleTon<ErrorManer> {
     setErrorStr(ERRCODE::ERR_UNKNOWN1, "unknown exception 1 capture");
   }
 
-  std::string getErrorStr(ERRCODE errcode) {
+  inline std::string getErrorStr(ERRCODE errcode) {
     auto it = m_errormap.find(errcode);
     if (it == m_errormap.end())
       throw std::runtime_error("error code get failed, error code :" +
@@ -40,7 +41,8 @@ class ErrorManer : public SingleTon<ErrorManer> {
                                "\n");
     return it->second;
   }
-  ui64_t getErrorCode(ERRCODE errcode) {
+
+  inline ui64_t getErrorCode(ERRCODE errcode) {
     auto it = m_errormap.find(errcode);
     if (it == m_errormap.end())
       throw std::runtime_error("error code get failed, error code :" +
@@ -48,7 +50,8 @@ class ErrorManer : public SingleTon<ErrorManer> {
                                "\n");
     return static_cast<ui64_t>(errcode);
   }
-  void setErrorStr(ERRCODE errcode, std::string errorstr) {
+
+  inline void setErrorStr(ERRCODE errcode, std::string errorstr) {
     auto it = m_errormap.insert({errcode, errorstr});
     if (!it.second) {
       throw std::runtime_error("error manager init failed, error code :" +
