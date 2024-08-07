@@ -18,9 +18,9 @@ file(GLOB_RECURSE TEST_FILES ${TEST_DIRS}/*.cpp)
 set(3DPARTY ${CMAKE_SOURCE_DIR}/3dparty)
 
 if(WIN32)
-    include(cmake/win64.cmake)
+    include(cmake/toolchain/msvc.cmake)
 elseif(UNIX)
-    include(cmake/unix64.cmake)
+    include(cmake/toolchain/gcc.cmake)
 elseif(APPLE)
     message(FATAL_ERROR "no support operator system")
 endif()
@@ -51,5 +51,5 @@ add_library(cpp_backend_develop_template_dy SHARED
     ${SRC_DIRS}/max_i32.cpp
 )
 
-set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/lib")
-set(EXECUTABLE_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/bin")
+set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/output/lib")
+set(EXECUTABLE_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/output/bin")

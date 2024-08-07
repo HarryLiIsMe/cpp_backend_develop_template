@@ -1,4 +1,6 @@
 # make fmt
+# https://clang.llvm.org/docs/ClangFormat.html
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 # clang-format version >= 18.1.8
 # clang-format --style=Google --dump-config > .clang-format
 add_custom_target(fmt

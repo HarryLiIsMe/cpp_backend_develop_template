@@ -5,6 +5,5 @@ build
 3dparty/*/
 !3dparty/
 !3dparty/.gitkeep
-bin
-lib
+output
 .env
