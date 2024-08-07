@@ -28,7 +28,7 @@ class VerManer : public SingleTon<VerManer> {
   inline VER_TYPE getCurrVer() { return VER_CURR; }
 
   inline EVER_COMP verComp(VER_TYPE lver, VER_TYPE rver) {
-    ui32_t i_lver, i_rver;
+    u32_t i_lver, i_rver;
     try {
       i_lver = std::stoi(lver);
       i_rver = std::stoi(rver);

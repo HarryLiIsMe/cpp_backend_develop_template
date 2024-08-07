@@ -26,9 +26,9 @@ class LogManer : public SingleTon<LogManer> {
   };
 
  public:
-  void setLogLevel(ui8_t levels) { m_levels = levels; }
+  void setLogLevel(u8_t levels) { m_levels = levels; }
 
-  ui8_t getLogLevel() { return m_levels; }
+  u8_t getLogLevel() { return m_levels; }
 
   void setLogFormat() {}
 
@@ -98,5 +98,5 @@ class LogManer : public SingleTon<LogManer> {
   }
 
  private:
-  ui8_t m_levels;
+  u8_t m_levels;
 };

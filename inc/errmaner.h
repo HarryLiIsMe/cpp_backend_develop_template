@@ -15,7 +15,7 @@ struct GlobalError : std::runtime_error {
   ERRCODE get_code() { return m_errocde; }
   std::string get_message() { return this->runtime_error::what(); };
   std::string to_string() {
-    return "error code: " + std::to_string(static_cast<ui64_t>(m_errocde)) +
+    return "error code: " + std::to_string(static_cast<u64_t>(m_errocde)) +
            " error message: " + this->runtime_error::what();
   }
 
@@ -37,25 +37,25 @@ class ErrorManer : public SingleTon<ErrorManer> {
     auto it = m_errormap.find(errcode);
     if (it == m_errormap.end())
       throw std::runtime_error("error code get failed, error code :" +
-                               std::to_string(static_cast<ui64_t>(errcode)) +
+                               std::to_string(static_cast<u64_t>(errcode)) +
                                "\n");
     return it->second;
   }
 
-  inline ui64_t getErrorCode(ERRCODE errcode) {
+  inline u64_t getErrorCode(ERRCODE errcode) {
     auto it = m_errormap.find(errcode);
     if (it == m_errormap.end())
       throw std::runtime_error("error code get failed, error code :" +
-                               std::to_string(static_cast<ui64_t>(errcode)) +
+                               std::to_string(static_cast<u64_t>(errcode)) +
                                "\n");
-    return static_cast<ui64_t>(errcode);
+    return static_cast<u64_t>(errcode);
   }
 
   inline void setErrorStr(ERRCODE errcode, std::string errorstr) {
     auto it = m_errormap.insert({errcode, errorstr});
     if (!it.second) {
       throw std::runtime_error("error manager init failed, error code :" +
-                               std::to_string(static_cast<ui64_t>(errcode)) +
+                               std::to_string(static_cast<u64_t>(errcode)) +
                                "\n");
     }
   }
