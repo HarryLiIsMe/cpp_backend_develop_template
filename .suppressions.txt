@@ -1,0 +1,6 @@
+missingIncludeSystem
+missingInclude
+unusedFunction
+unreadVariable
+functionStatic
+functionConst

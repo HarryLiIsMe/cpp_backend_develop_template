@@ -22,8 +22,12 @@
 # https://github.com/danmar/cppcheck
 # https://sourceforge.net/p/cppcheck/wiki/ListOfChecks/
 # https://cppcheck.sourceforge.io/manual.pdf
+# cppcheck version >= 2.14.1
 add_custom_target(lint
-COMMAND cppcheck --enable=all --inconclusive --suppress=missingIncludeSystem --suppress=missingInclude --suppress=unusedFunction --suppress=unreadVariable --suppress=functionStatic --std=c++20 ${SRC_FILES} ${TEST_FILES} -I ./inc
+COMMAND cppcheck --enable=all --suppressions-list=.suppressions.txt --inconclusive --language=c++ --std=c++20  ${SRC_FILES} ${TEST_FILES} -I ./inc
 WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 COMMENT "lint code"
 )
+
+# set(CMAKE_CXX_CPPCHECK) 
+# set(CMAKE_C_CPPCHECK) 
