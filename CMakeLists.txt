@@ -22,6 +22,8 @@ if(WIN32)
 elseif(UNIX)
     include(cmake/toolchain/gcc.cmake)
 elseif(APPLE)
+    include(cmake/toolchain/clang.cmake)
+else()
     message(FATAL_ERROR "no support operator system")
 endif()
 
