@@ -10,7 +10,7 @@
 #include "singleton.h"
 
 struct GlobalError : std::runtime_error {
-  GlobalError(ERRCODE errcode, std::string message)
+  GlobalError(ERRCODE errcode, const std::string &message)
       : m_errocde(errcode), std::runtime_error(message) {}
   ERRCODE get_code() { return m_errocde; }
   std::string get_message() { return this->runtime_error::what(); };

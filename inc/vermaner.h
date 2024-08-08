@@ -21,13 +21,13 @@ class VerManer : public SingleTon<VerManer> {
     EVERLESS = -1
   };
 
-  inline std::string getStrCurrVer() {
+  inline const std::string getStrCurrVer() {
     return std::string("VER_").append(VER_CURR);
   }
 
-  inline VER_TYPE getCurrVer() { return VER_CURR; }
+  inline VER_TYPE& getCurrVer() { return VER_CURR; }
 
-  inline EVER_COMP verComp(VER_TYPE lver, VER_TYPE rver) {
+  inline EVER_COMP verComp(VER_TYPE& lver, VER_TYPE& rver) {
     u32_t i_lver, i_rver;
     try {
       i_lver = std::stoi(lver);
@@ -41,7 +41,7 @@ class VerManer : public SingleTon<VerManer> {
                                                : EVER_COMP::EVERLESS);
   }
 
-  inline std::string getBuildDateTime() {
+  inline const std::string getBuildDateTime() {
     return std::string("build date: ")
         .append(__DATE__)
         .append(" time: ")

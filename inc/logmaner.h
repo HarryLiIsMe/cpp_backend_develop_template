@@ -9,14 +9,14 @@
 class LogManer : public SingleTon<LogManer> {
  public:
   LogManer() { init(); }
-  virtual ~LogManer() { clear(); }
+  virtual ~LogManer() override { clear(); }
 
  private:
   void init() {}
   void clear() {}
 
  public:
-  enum class LogLevelType {
+  enum class LogLevelType : u8_t {
     DisabledLevel = 0b0,
     InfoLevel = 0b1,
     WarnLevel = 0b10,
@@ -98,5 +98,5 @@ class LogManer : public SingleTon<LogManer> {
   }
 
  private:
-  u8_t m_levels;
+  u8_t m_levels = static_cast<u8_t>(LogLevelType::DisabledLevel);
 };
