@@ -24,7 +24,7 @@
 # https://cppcheck.sourceforge.io/manual.pdf
 # cppcheck version >= 2.14.1
 add_custom_target(lint
-COMMAND cppcheck --enable=all --suppressions-list=.suppressions.txt --inconclusive --language=c++ --std=c++20  ${SRC_FILES} ${TEST_FILES} -I ./inc
+COMMAND cppcheck --enable=all --suppressions-list=.suppressions.txt --language=c++ --std=c++20  ${SRC_FILES} ${TEST_FILES} -I ./inc
 WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 COMMENT "lint code"
 )
