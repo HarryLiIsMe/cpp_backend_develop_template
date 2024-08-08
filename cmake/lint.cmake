@@ -10,12 +10,7 @@ add_custom_target(lint
     COMMENT "lint code"
 )
 # add_custom_target(lint
-#     COMMAND clang-tidy --config-file=${CMAKE_SOURCE_DIR}/.clang-tidy ${SRC_FILES} ${TEST_FILES} -p ${PROJECT_BINARY_DIR} 
-#     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-#     COMMENT "lint code"
-# )
-# add_custom_target(lint
-#     COMMAND clang-tidy --config-file=${CMAKE_SOURCE_DIR}/.clang-tidy ${SRC_FILES} ${TEST_FILES} -p ${CMAKE_BINARY_DIR} 
+#     COMMAND clang-tidy --config-file=${CMAKE_SOURCE_DIR}/.clang-tidy ${SRC_FILES} ${TEST_FILES} -p ${PROJECT_BINARY_DIR}|{CMAKE_BINARY_DIR} 
 #     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 #     COMMENT "lint code"
 # )
