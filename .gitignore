@@ -1,9 +1,5 @@
 bld
 build
 .vscode
-3dparty/*
-3dparty/*/
-!3dparty/
-!3dparty/.gitkeep
 output
 .env

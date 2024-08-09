@@ -1,5 +1,5 @@
 # make test
-set(GTEST_DIRS ${3DPARTY}/googletest-1.15.2)
+set(GTEST_DIRS ${3DPARTY}/googletest)
 set(GTEST_SRC_DIRS ${GTEST_DIRS}/googletest/src)
 set(GTEST_INCS ${GTEST_DIRS}/googletest/include)
 set(GMOCK_SRC_DIRS ${GTEST_DIRS}/googlemock/src)
