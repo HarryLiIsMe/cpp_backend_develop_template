@@ -17,6 +17,9 @@ file(GLOB_RECURSE TEST_FILES ${TEST_DIRS}/*.cpp)
 
 set(3DPARTY ${CMAKE_SOURCE_DIR}/3dparty)
 
+# include 3dparty
+include(cmake/3dparty.cmake)
+
 if(WIN32)
     include(cmake/toolchain/msvc.cmake)
 elseif(UNIX)
@@ -38,6 +41,7 @@ include_directories(
 # exec binary file generate
 add_executable(cpp_backend_develop_template_main
     ${SRC_DIRS}/main.cpp
+    ${3DPARTY_SRC}
 )
 target_link_libraries(cpp_backend_develop_template_main)
 
