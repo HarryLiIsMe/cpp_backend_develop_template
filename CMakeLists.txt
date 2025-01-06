@@ -34,6 +34,12 @@ include(cmake/unittest.cmake)
 include(cmake/fmt.cmake)
 include(cmake/lint.cmake)
 
+add_custom_target(run
+    COMMAND ./output/bin/cpp_backend_develop_template_main
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "run..."
+)
+
 include_directories(
     ${INC_DIRS}
 )
