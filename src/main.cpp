@@ -8,7 +8,7 @@
 #include "vermaner.h"
 
 using namespace std;
-using std::cout, std::endl, std::string, std::getenv;
+using std::cout, std::endl, std::string, std::getenv, std::exit;
 
 i32_t main(void) {
   ErrorManer::instance();
@@ -16,7 +16,11 @@ i32_t main(void) {
   LogManer::instance();
 
   env_load(".", false);
-  const string project_name = getenv("PROJECT_NAME");
+  const char* project_name = getenv("PROJECT_NAME");
+  if (NULL == project_name) {
+    cout << "env load failed!!!" << endl;
+    exit(-1);
+  }
 
   cout << "hello world " << project_name << endl;
   cout << VerManer::instance().getBuildDateTime()
