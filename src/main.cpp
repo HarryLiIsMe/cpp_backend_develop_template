@@ -25,5 +25,6 @@ i32_t main(void) {
   cout << "hello world " << project_name << endl;
   cout << VerManer::instance().getBuildDateTime()
        << " version: " << VerManer::instance().getCurrVer() << endl;
+    
   return 0;
 }
