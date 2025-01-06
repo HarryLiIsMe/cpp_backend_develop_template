@@ -1,6 +1,6 @@
 # Cpp Program Language Backend Development Template
 
-## Supported OS platforms: linux, windows, and macos.
+## Supported OS platforms: linux\unix, windows, and macos.
 
 ## Operations that you can do under linux\unix and macos
 ```bash shell
